@@ -1,10 +1,7 @@
-FROM gliderlabs/alpine:3.1
+FROM registry.docker/debian
 ENTRYPOINT ["/bin/logspout"]
 VOLUME /mnt/routes
 EXPOSE 8000
-
-COPY . /src
-RUN cd /src && ./build.sh "$(cat VERSION)"
-
-ONBUILD COPY ./modules.go /src/modules.go
-ONBUILD RUN cd /src && ./build.sh "$(cat VERSION)-custom"
+ADD bin/logspout /bin/logspout
+# Backwards compatibility
+RUN ln -s /tmp/docker.sock /var/run/docker.sock
