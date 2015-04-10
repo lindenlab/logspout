@@ -1,0 +1,4 @@
+LOGSPOUT_OPTS=
+PORT=8000
+ROUTESPATH=/var/lib/logspout/routes
+#DEBUG=1

@@ -1,0 +1,17 @@
+[Install]
+WantedBy=multi-user.target
+
+[Unit]
+Requires=consul.target swarm.service
+Description=Logspout is a log router for Docker containers that runs inside Docker.
+Documentation=https://github.com/lindenlab/logspout
+Wants=cloud-final.service consul.target swarm.service
+After=cloud-final.service consul.target swarm.service
+
+[Service]
+EnvironmentFile=/etc/default/ec2meta 
+EnvironmentFile=/etc/default/logspout
+ExecStart=/bin/bash -c "DOCKER_HOST=tcp://${PRIVATE_IPV4}:2375 /usr/bin/logspout $LOGSPOUT_OPTS" 
+Restart=always
+RestartSec=60
+

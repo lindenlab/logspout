@@ -1,0 +1,11 @@
+Source: logspout
+Maintainer: Don Kjer <don@lindenlab.com>
+Section: misc
+Priority: extra
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9), dh-systemd (>= 1.5)
+
+Package: logspout
+Architecture: any
+Description: Logspout is a log router for Docker containers that runs inside Docker.
+ Logspout is a log router for Docker containers that runs inside Docker.

@@ -5,7 +5,7 @@ APP_DIR := $(SRC_DIR)/$(APP_NAME)
 REGISTRY := registry.docker
 BUILD_IMAGE := $(REGISTRY)/golang
 APP_IMAGE := $(REGISTRY)/$(APP_NAME)
-DOCKER_RUN := docker run -it --rm -v "$(shell pwd)":/go $(BUILD_IMAGE)
+DOCKER_RUN := docker run -i --rm -v "$(shell pwd)":/go $(BUILD_IMAGE)
 UID := $(shell id -u)
 GID := $(shell id -g)
 
@@ -37,6 +37,6 @@ chown:
 
 clean:
 	$(MAKE) chown || true
-	rm -rf bin pkg src $(APP_NAME)
+	$(DOCKER_RUN) rm -rf /go/bin /go/pkg /go/src /go/$(APP_NAME)
 
 .PHONY: all binary test chown clean
