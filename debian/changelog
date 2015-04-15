@@ -1,4 +1,10 @@
-logspout (3.0) unstable; urgency=medium
+logspout (3.0-2~linden) unstable; urgency=medium
+
+  * Updating logspout.service
+
+ -- Don Kjer <don@lindenlab.com>  Wed, 15 Apr 2015 19:13:12 +0000
+
+logspout (3.0-1~linden) unstable; urgency=medium
 
   * Initial release.
 
